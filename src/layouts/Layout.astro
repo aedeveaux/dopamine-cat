@@ -14,7 +14,10 @@ const { title } = Astro.props;
     <header class="site-header">
       <div class="container--wide">
         <nav class="site-nav">
-          <a href="/" class="site-logo">The Dopamine <span>Cat</span></a>
+          <a href="/" class="site-logo">
+            <img src="/tdc.svg" alt="The Dopamine Cat" class="site-logo-img" />
+            <span class="site-logo-name">The Dopamine Cat</span>
+          </a>
           <div class="nav-links">
             <a href="/about">about</a>
             <a href="/blog">all posts</a>
@@ -49,13 +52,26 @@ const { title } = Astro.props;
   align-items: center;
 }
 .site-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   text-decoration: none;
 }
-.site-logo span { color: var(--teal); }
+.site-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.site-logo-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+}
+@media (max-width: 600px) {
+  .site-logo-name { display: none; }
+}
 .nav-links {
   display: flex;
   gap: 1.5rem;

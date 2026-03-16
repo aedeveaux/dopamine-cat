@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import molecule from '../assets/molecule.png';
 ---
 
 <Layout title="Home">
@@ -9,15 +10,12 @@ import Layout from '../layouts/Layout.astro';
       <div class="hero-inner">
         <div class="hero-text">
           <span class="kicker">for big ideas and complicated brains</span>
-          <h1>Real stories about working with your brain, not against it.</h1>
+          <h1>Real stories about working with your brain, <em>not against it.</em></h1>
           <p>What happens when a creative, detail-obsessed, systems-thinking mind finally finds tools that can keep up with it. Warm, honest, occasionally chaotic.</p>
           <a href="/blog" class="btn-primary">start here</a>
         </div>
-        <div class="hero-card">
-          <span class="pill pill--purple">✦ featured</span>
-          <h3>The day I finally understood why I couldn't just "start"</h3>
-          <p>I spent two hours explaining my brain to an AI. What came back changed how I understood myself entirely.</p>
-          <span class="meta">7 min read · ADHD & executive function</span>
+        <div class="hero-image">
+          <img src={molecule.src} alt="" class="molecule-img" />
         </div>
       </div>
     </div>
@@ -57,14 +55,20 @@ import Layout from '../layouts/Layout.astro';
 <style>
 /* Hero */
 .hero {
-  padding: 4rem 0 3rem;
+  padding: 1.5rem 0;
+  margin-top: 0;
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
 }
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
+  width: 100%;
 }
 .kicker {
   display: inline-block;
@@ -74,11 +78,12 @@ import Layout from '../layouts/Layout.astro';
   font-weight: 500;
   padding: 0.3rem 0.9rem;
   border-radius: 20px;
+  margin-top: 0;
   margin-bottom: 1.25rem;
   letter-spacing: 0.02em;
 }
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
 }
 .hero-text p {
@@ -96,19 +101,16 @@ import Layout from '../layouts/Layout.astro';
   font-size: 0.95rem;
   text-decoration: none;
 }
-.hero-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem;
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
-.hero-card h3 {
-  font-size: 1.2rem;
-  margin: 0.75rem 0 0.75rem;
-}
-.hero-card p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
+.molecule-img {
+  width: 85%;
+  max-width: none;
+  height: auto;
+  display: block;
 }
 
 /* Pills */
