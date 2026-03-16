@@ -1,0 +1,90 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<Layout title="All Posts">
+  <section class="blog-index">
+    <div class="container">
+      <header class="page-header">
+        <h1>All stories</h1>
+        <p>Real problems, messy processes, occasional breakthroughs.</p>
+      </header>
+      <div class="post-list">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}`} class="post-row">
+            <span class={`pill pill--${post.data.categoryColor}`}>{post.data.category}</span>
+            <div class="post-row-content">
+              <h2>{post.data.title}</h2>
+              <p>{post.data.excerpt}</p>
+            </div>
+            <div class="post-row-meta">
+              <span>{post.data.date}</span>
+              <span>{post.data.readTime}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.blog-index { padding: 3rem 0; }
+.page-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.page-header p  { color: var(--text-muted); font-size: 1rem; margin: 0; }
+.post-list { display: flex; flex-direction: column; gap: 0; }
+.post-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 130px;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.post-row:hover { background: #fafafa; }
+.post-row:hover h2 { color: var(--purple); }
+.pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-top: 0.2rem;
+}
+.pill--teal   { background: var(--teal-light);   color: var(--teal-dark);   }
+.pill--purple { background: var(--purple-light);  color: var(--purple-dark); }
+.pill--orange { background: var(--orange-light);  color: var(--orange-dark); }
+.post-row-content h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  transition: color 0.15s;
+}
+.post-row-content p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+.post-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-top: 0.2rem;
+}
+</style>

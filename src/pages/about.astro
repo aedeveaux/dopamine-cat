@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <section class="about">
+    <div class="container">
+
+      <header class="page-header">
+        <span class="kicker">about the human behind the cat</span>
+        <h1>Hi, I'm April.</h1>
+      </header>
+
+      <div class="about-body">
+
+        <p class="lede">I'm a physician-scientist with a PhD in genetics, a career in cancer research, and a brain that has spent most of its life working very hard to look like it's functioning normally.</p>
+
+        <p>I was diagnosed with ADHD as an adult — late enough that I had already built an entire identity around compensating for it. Late enough that I had internalized a lot of shame about the ways my brain was different. Late enough that I had forgotten, somewhere along the way, that different doesn't mean broken.</p>
+
+        <p>The Dopamine Cat exists because of one conversation. I sat down with an AI, dumped out everything I struggled with, and got back something I had never managed to give myself: a clear, organized picture of my own brain. That moment cracked something open. And I've been writing about it ever since.</p>
+
+        <div class="about-divider"></div>
+
+        <h2>What this place is</h2>
+
+        <p>This isn't a productivity blog. It's not a listicle factory. It's not going to tell you to wake up at 5am or build a morning routine or just try harder.</p>
+
+        <p>It's a collection of real stories about what happens when a creative, detail-obsessed, systems-thinking mind finally finds tools that can keep up with it. Each post starts with a real problem and takes you through the messy, iterative, often surprising process of solving it — usually with AI as a thinking partner.</p>
+
+        <p>The science shows up when it's useful. But what drives this is genuine enthusiasm — the specific joy of someone who spent years feeling blocked, finally living in the clouds with a ladder.</p>
+
+        <div class="about-divider"></div>
+
+        <h2>What I'm building</h2>
+
+        <p>The Dopamine Cat is part of a small ecosystem of things I'm making under my company <strong>Velira Concepts</strong>. The other thing is <a href="https://squirrelsapp.com">Squirrels</a> — a productivity app I built specifically for ADHD brains, because every other app I tried was designed for a kind of focus I don't have.</p>
+
+        <p>Both things exist because I needed them and they didn't exist yet. That feels like a good enough reason to build something.</p>
+
+        <div class="about-divider"></div>
+
+        <div class="about-cta">
+          <h2>Stay in the loop</h2>
+          <p>New stories when my brain produces them — which is irregularly but enthusiastically. No spam, no ads, no nonsense.</p>
+          <a href="#newsletter" class="btn-primary">get the newsletter</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.about { padding: 3rem 0 4rem; }
+
+.page-header { margin-bottom: 2.5rem; }
+.kicker {
+  display: inline-block;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+.page-header h1 { font-size: 2.5rem; }
+
+.about-body { max-width: 680px; }
+
+.lede {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--text);
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+}
+
+.about-body p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.about-body h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.about-body a { color: var(--purple); }
+.about-body strong { font-weight: 500; }
+
+.about-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+.about-cta {
+  background: var(--teal-light);
+  border-left: 3px solid var(--teal);
+  padding: 1.5rem 2rem;
+}
+.about-cta h2 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.about-cta p  { color: var(--teal-dark); margin-bottom: 1.25rem; font-size: 0.95rem; }
+
+.btn-primary {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.65rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+</style>
