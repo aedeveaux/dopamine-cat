@@ -1,11 +1,164 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container--wide">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <span class="kicker">for big ideas and complicated brains</span>
+          <h1>Real stories about working with your brain, not against it.</h1>
+          <p>What happens when a creative, detail-obsessed, systems-thinking mind finally finds tools that can keep up with it. Warm, honest, occasionally chaotic.</p>
+          <a href="/blog" class="btn-primary">start here</a>
+        </div>
+        <div class="hero-card">
+          <span class="pill pill--purple">✦ featured</span>
+          <h3>The day I finally understood why I couldn't just "start"</h3>
+          <p>I spent two hours explaining my brain to an AI. What came back changed how I understood myself entirely.</p>
+          <span class="meta">7 min read · ADHD & executive function</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Posts -->
+  <section class="posts-section">
+    <div class="container--wide">
+      <div class="section-header">
+        <h2>Recent stories</h2>
+        <a href="/blog">all posts →</a>
+      </div>
+      <div class="post-grid">
+        <div class="post-card">
+          <span class="pill pill--teal">ADHD life</span>
+          <h3>The sorting party that took four AI conversations to finish</h3>
+          <p>I had 600 items to sort and no idea where to start. Here's the messy, iterative way we figured it out.</p>
+          <span class="meta">5 min read</span>
+        </div>
+        <div class="post-card">
+          <span class="pill pill--orange">AI tools</span>
+          <h3>Teaching my brain to finish things, using a dog metaphor</h3>
+          <p>The AI suggested I think of my task list like a dog that needs a walk. It was weird. It absolutely worked.</p>
+          <span class="meta">6 min read</span>
+        </div>
+        <div class="post-card">
+          <span class="pill pill--purple">brain science</span>
+          <h3>Why "just start" is the most useless advice in the world</h3>
+          <p>There's a specific reason initiation is hard for ADHD brains, and it has nothing to do with willpower.</p>
+          <span class="meta">8 min read</span>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+/* Hero */
+.hero {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.kicker {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.02em;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero-text p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  padding: 0.65rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.hero-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+}
+.hero-card h3 {
+  font-size: 1.2rem;
+  margin: 0.75rem 0 0.75rem;
+}
+.hero-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Pills */
+.pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+.pill--purple { background: var(--purple-light); color: var(--purple-dark); }
+.pill--teal   { background: var(--teal-light);   color: var(--teal-dark);   }
+.pill--orange { background: var(--orange-light);  color: var(--orange-dark); }
+
+/* Posts section */
+.posts-section { padding: 3rem 0; }
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-header h2 { font-size: 1.25rem; }
+.section-header a  { font-size: 0.85rem; color: var(--teal-dark); }
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.post-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+.post-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+.post-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+</style>

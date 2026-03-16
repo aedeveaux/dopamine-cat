@@ -1,0 +1,25 @@
+---
+const { label = "the conversation" } = Astro.props;
+---
+<div class="ai-chat">
+  <span class="block-label">{label}</span>
+  <slot />
+</div>
+
+<style>
+.ai-chat {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.block-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+</style>

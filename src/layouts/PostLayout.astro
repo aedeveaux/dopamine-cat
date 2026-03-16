@@ -1,0 +1,57 @@
+---
+import Layout from './Layout.astro';
+const { title, date, category, readTime, categoryColor = "teal" } = Astro.props;
+---
+
+<Layout title={title}>
+  <article class="post">
+    <div class="container">
+      <header class="post-header">
+        <span class={`pill pill--${categoryColor}`}>{category}</span>
+        <h1>{title}</h1>
+        <div class="byline">April · {date} · {readTime}</div>
+      </header>
+      <div class="post-body">
+        <slot />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+.post { padding: 3rem 0 4rem; }
+.post-header { margin-bottom: 2.5rem; }
+.post-header h1 {
+  font-size: 2.25rem;
+  margin: 0.75rem 0 0.6rem;
+  line-height: 1.2;
+}
+.byline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+.pill--teal   { background: var(--teal-light);   color: var(--teal-dark);   }
+.pill--purple { background: var(--purple-light);  color: var(--purple-dark); }
+.pill--orange { background: var(--orange-light);  color: var(--orange-dark); }
+.post-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+.post-body :global(p) { margin-bottom: 1.25rem; }
+.post-body :global(h2) {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 1rem;
+}
+.post-body :global(h3) {
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+}
+</style>

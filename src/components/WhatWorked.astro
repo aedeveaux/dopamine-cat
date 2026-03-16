@@ -1,0 +1,34 @@
+---
+const { label = "what actually worked" } = Astro.props;
+---
+<div class="what-worked">
+  <span class="block-label">{label}</span>
+  <slot />
+</div>
+
+<style>
+.what-worked {
+  border-left: 3px solid var(--orange);
+  background: var(--orange-light);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.block-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange-dark);
+  margin-bottom: 0.75rem;
+}
+.what-worked :global(ul) {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.what-worked :global(li) {
+  font-size: 0.95rem;
+  color: var(--orange-dark);
+  line-height: 1.8;
+}
+</style>
