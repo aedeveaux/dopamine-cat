@@ -15,7 +15,7 @@ posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).get
       </header>
       <div class="post-list">
         {posts.map(post => (
-          <a href={`/blog/${post.slug}`} class="post-row">
+          <a href={`/blog/${post.id}`} class="post-row">
             <span class={`pill pill--${post.data.categoryColor}`}>{post.data.category}</span>
             <div class="post-row-content">
               <h2>{post.data.title}</h2>
