@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import brainImg from '../assets/about-brain.png';
 ---
 
 <Layout title="About">
@@ -8,40 +9,41 @@ import Layout from '../layouts/Layout.astro';
 
       <header class="page-header">
         <span class="kicker">about the human behind the cat</span>
-        <h1>Hi, I'm April.</h1>
+
       </header>
 
+      <div class="about-hero">
+        <div class="about-image">
+          <img src={brainImg.src} alt="Abstract illustration of a brain" />
+        </div>
+        <div class="about-intro">
+          <p class="lede">I have more ideas than most people know what to do with. For most of my life, the hard part wasn't coming up with them — it was trying to act on them. It was the middle: the organization, the initiation, the follow-through.</p>
+
+          <p>I'm a physician-scientist by training and a cancer researcher. It wasn't until halfway through med school that I was diagnosed with ADHD — late enough that I had already built an entire identity around compensating for it, and internalized a lot of shame about the ways my brain was different.</p>
+
+          <p>That changed with one conversation. I sat down with an AI and vented my frustrations — the fatigue of battling uphill every day just to get things done. For the first time, I got a clear and organized view of how my brain actually worked: my need for quick feedback loops, how AI functions as an executive function scaffold, and what it looks like to work with my brain instead of against it.</p>
+
+          <p>The Dopamine Cat is what happened next.</p>
+        </div>
+      </div>
+
       <div class="about-body">
-
-        <p class="lede">I'm a physician-scientist with a PhD in genetics, a career in cancer research, and a brain that has spent most of its life working very hard to look like it's functioning normally.</p>
-
-        <p>I was diagnosed with ADHD as an adult — late enough that I had already built an entire identity around compensating for it. Late enough that I had internalized a lot of shame about the ways my brain was different. Late enough that I had forgotten, somewhere along the way, that different doesn't mean broken.</p>
-
-        <p>The Dopamine Cat exists because of one conversation. I sat down with an AI, dumped out everything I struggled with, and got back something I had never managed to give myself: a clear, organized picture of my own brain. That moment cracked something open. And I've been writing about it ever since.</p>
 
         <div class="about-divider"></div>
 
         <h2>What this place is</h2>
 
-        <p>This isn't a productivity blog. It's not a listicle factory. It's not going to tell you to wake up at 5am or build a morning routine or just try harder.</p>
+        <p>This isn't a productivity blog. It won't tell you to wake up at 5am or just try harder.</p>
 
-        <p>It's a collection of real stories about what happens when a creative, detail-obsessed, systems-thinking mind finally finds tools that can keep up with it. Each post starts with a real problem and takes you through the messy, iterative, often surprising process of solving it — usually with AI as a thinking partner.</p>
+        <p>It's a record of what happens when a detail-obsessed, systems-thinking mind finally has tools that can keep up with it. Each post starts with a real problem — building an app, engineering a cookie recipe, designing a skincare routine, setting up my home office — and takes you through the actual process of solving it with AI as a thinking partner.</p>
 
-        <p>The science shows up when it's useful. But what drives this is genuine enthusiasm — the specific joy of someone who spent years feeling blocked, finally living in the clouds with a ladder.</p>
-
-        <div class="about-divider"></div>
-
-        <h2>What I'm building</h2>
-
-        <p>The Dopamine Cat is part of a small ecosystem of things I'm making under my company <strong>Velira Concepts</strong>. The other thing is <a href="https://squirrelsapp.com">Squirrels</a> — a productivity app I built specifically for ADHD brains, because every other app I tried was designed for a kind of focus I don't have.</p>
-
-        <p>Both things exist because I needed them and they didn't exist yet. That feels like a good enough reason to build something.</p>
+        <p>The science shows up when it's useful. But what drives this is something simpler: I have more ideas than I ever thought I'd get to act on. Now I'm acting on them.</p>
 
         <div class="about-divider"></div>
 
         <div class="about-cta">
           <h2>Stay in the loop</h2>
-          <p>New stories when my brain produces them — which is irregularly but enthusiastically. No spam, no ads, no nonsense.</p>
+          <p>New stories when my brain produces them — irregularly but enthusiastically. No spam, no ads, no nonsense.</p>
           <a href="#newsletter" class="btn-primary">get the newsletter</a>
         </div>
 
@@ -53,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
 <style>
 .about { padding: 3rem 0 4rem; }
 
-.page-header { margin-bottom: 2.5rem; }
+.page-header { margin-bottom: 2rem; }
 .kicker {
   display: inline-block;
   background: var(--purple-light);
@@ -66,15 +68,34 @@ import Layout from '../layouts/Layout.astro';
 }
 .page-header h1 { font-size: 2.5rem; }
 
-.about-body { max-width: 680px; }
+.about-hero {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
 
-.lede {
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-intro .lede {
   font-size: 1.2rem;
   line-height: 1.75;
   color: var(--text);
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
+
+.about-intro p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.about-body { max-width: 680px; }
 
 .about-body p {
   font-size: 1.05rem;
@@ -108,7 +129,7 @@ import Layout from '../layouts/Layout.astro';
 .btn-primary {
   display: inline-block;
   background: var(--teal);
-  color: var(--white);
+  color: white;
   padding: 0.65rem 1.5rem;
   border-radius: 24px;
   font-weight: 500;

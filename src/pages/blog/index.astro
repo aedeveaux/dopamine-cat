@@ -11,15 +11,22 @@ posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).get
     <div class="container">
       <header class="page-header">
         <h1>All stories</h1>
-        <p>Real problems, messy processes, occasional breakthroughs.</p>
+        <p>Big ideas. Roundabout paths. Satisfying wins.</p>
       </header>
       <div class="post-list">
         {posts.map(post => (
           <a href={`/blog/${post.id}`} class="post-row">
-            <span class={`pill pill--${post.data.categoryColor}`}>{post.data.category}</span>
+            <span class={`pill pill--${post.data.type === 'brain science' ? 'purple' : post.data.type === 'tools' ? 'orange' : post.data.type === 'story' ? 'teal' : 'teal'}`}>{post.data.type}</span>
             <div class="post-row-content">
               <h2>{post.data.title}</h2>
               <p>{post.data.excerpt}</p>
+              {post.data.tags.length > 0 && (
+                <div class="post-tags">
+                  {post.data.tags.map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
             </div>
             <div class="post-row-meta">
               <span>{post.data.date}</span>
@@ -46,27 +53,28 @@ posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).get
   display: grid;
   grid-template-columns: 110px 1fr 130px;
   gap: 1.5rem;
-  align-items: start;
+  align-items: center;
   padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
   transition: background 0.15s;
 }
-.post-row:hover { background: #fafafa; }
-.post-row:hover h2 { color: var(--purple); }
+.post-row:hover            { background: #fafafa; }
+.post-row:hover h2         { color: var(--purple); }
 .pill {
+  justify-self: start;
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
-  white-space: nowrap;
-  margin-top: 0.2rem;
+  margin-bottom: 0.75rem;
 }
 .pill--teal   { background: var(--teal-light);   color: var(--teal-dark);   }
 .pill--purple { background: var(--purple-light);  color: var(--purple-dark); }
 .pill--orange { background: var(--orange-light);  color: var(--orange-dark); }
+
 .post-row-content h2 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
@@ -82,9 +90,23 @@ posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).get
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  text-align: right;
+  text-align: center;
   font-size: 0.8rem;
   color: var(--text-muted);
-  padding-top: 0.2rem;
+}
+.tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 400;
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  background: var(--border);
+  color: var(--text-muted);
+}
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
 }
 </style>
