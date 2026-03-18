@@ -84,3 +84,20 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
   padding: 0 1.5rem;
 }
+
+/* ── Float utilities ── */
+.img-left {
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+}
+
+.img-right {
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}

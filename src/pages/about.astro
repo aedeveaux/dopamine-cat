@@ -12,12 +12,12 @@ import brainImg from '../assets/about-brain.png';
 
       </header>
 
-      <div class="about-hero">
-        <div class="about-image">
+      <div class="about-hero clearfix">
+        <div class="about-image img-left">
           <img src={brainImg.src} alt="Abstract illustration of a brain" />
         </div>
         <div class="about-intro">
-          <p class="lede">I have more ideas than most people know what to do with. For most of my life, the hard part wasn't coming up with them — it was trying to act on them. It was the middle: the organization, the initiation, the follow-through.</p>
+          <p>I have more ideas than most people know what to do with. For most of my life, the hard part wasn't coming up with them — it was trying to act on them. It was the middle: the organization, the initiation, the follow-through.</p>
 
           <p>I'm a physician-scientist by training and a cancer researcher. It wasn't until halfway through med school that I was diagnosed with ADHD — late enough that I had already built an entire identity around compensating for it, and internalized a lot of shame about the ways my brain was different.</p>
 
@@ -68,24 +68,15 @@ import brainImg from '../assets/about-brain.png';
 }
 .page-header h1 { font-size: 2.5rem; }
 
-.about-hero {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 3rem;
-  align-items: start;
+.about-image {
+  width: 340px;
+  max-width: 45%;
 }
 
 .about-image img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.about-intro .lede {
-  font-size: 1.2rem;
-  line-height: 1.75;
-  color: var(--text);
-  margin-bottom: 1.25rem;
 }
 
 .about-intro p {
