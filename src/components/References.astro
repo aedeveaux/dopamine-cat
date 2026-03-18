@@ -1,0 +1,34 @@
+---
+const { label = "references" } = Astro.props;
+---
+<div class="references">
+  <span class="block-label">{label}</span>
+  <slot />
+</div>
+
+<style>
+.references {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 3rem;
+}
+.block-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.references :global(ol) {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.references :global(li) {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+}
+</style>

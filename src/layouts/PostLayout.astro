@@ -5,7 +5,6 @@ const colorMap: Record<string, string> = {
   story: 'teal',
   'brain science': 'purple',
   tools: 'orange',
-  squirrels: 'orange',
 };
 const categoryColor = colorMap[type] ?? 'teal';
 ---
@@ -17,6 +16,7 @@ const categoryColor = colorMap[type] ?? 'teal';
         <span class={`pill pill--${categoryColor}`}>{type}</span>
         <h1>{title}</h1>
         <div class="byline">DC · {date} · {readTime}</div>
+        {type === 'brain science' && <p class="post-descriptor">a deeper look</p>}
       </header>
       <div class="post-body">
         <slot />
@@ -36,6 +36,12 @@ const categoryColor = colorMap[type] ?? 'teal';
 .byline {
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+.post-descriptor {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--purple);
+  margin-top: 0.4rem;
 }
 .pill {
   display: inline-block;
