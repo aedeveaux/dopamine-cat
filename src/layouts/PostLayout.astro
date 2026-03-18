@@ -1,15 +1,22 @@
 ---
 import Layout from './Layout.astro';
-const { title, date, category, readTime, categoryColor = "teal" } = Astro.props;
+const { title, date, type, readTime } = Astro.props;
+const colorMap: Record<string, string> = {
+  story: 'teal',
+  'brain science': 'purple',
+  tools: 'orange',
+  squirrels: 'orange',
+};
+const categoryColor = colorMap[type] ?? 'teal';
 ---
 
 <Layout title={title}>
   <article class="post">
     <div class="container">
       <header class="post-header">
-        <span class={`pill pill--${categoryColor}`}>{category}</span>
+        <span class={`pill pill--${categoryColor}`}>{type}</span>
         <h1>{title}</h1>
-        <div class="byline">April · {date} · {readTime}</div>
+        <div class="byline">DC · {date} · {readTime}</div>
       </header>
       <div class="post-body">
         <slot />

@@ -17,8 +17,7 @@ const { Content } = await render(post);
 <PostLayout
   title={post.data.title}
   date={post.data.date}
-  category={post.data.category}
-  categoryColor={post.data.categoryColor}
+  type={post.data.type}
   readTime={post.data.readTime}
 >
   <Content />
