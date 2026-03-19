@@ -1,0 +1,119 @@
+---
+title: "How I Turn Conversations Into Content"
+date: "March 19, 2026"
+type: story
+tags: ["AI workflow", "content creation", "ADHD", "tools", "writing"]
+excerpt: "I wanted to write a blog series using my real AI conversations as source material. The problem was I couldn't find anything in them."
+readTime: "6 min read"
+---
+
+import ProblemCard from '../../components/ProblemCard.astro';
+import AiChat from '../../components/AiChat.astro';
+import ScienceNote from '../../components/ScienceNote.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import WhatWorked from '../../components/WhatWorked.astro';
+
+<ProblemCard label="the situation">
+<p> I wanted to find a more efficient way to dig through months of conversation to organize and start writing a series for this blog. </p>
+</ProblemCard>
+
+The idea behind this blog is that I'm writing stories about my experiences with problem solving using AI. I love sharing these stories because they're wins, and we should celebrate our wins! The issue, though, is that the process of finding the conversation I want to write about, digging through that conversation looking for the sequence of events, and pulling out the most relevant content, takes a long time. I wanted a more efficient way to get these articles written.
+
+If you've been using AI for a while (or even for a short amount of time), you may have noticed how long and unwieldy a conversation can get. Then you might start another conversation because you've reached a limit or the AI responses have started to deteriorate. Before you know it, you have multiple conversations of sometimes circular logic that all starts to look similar. The insights are in there somewhere, but they are buried in paragraphs of context-setting and follow-up questions and moments where you had to explain yourself three different ways before it clicked.
+
+When it came to this series, I wanted a solid plan for how I was going to break things up and, because the conversation started over a month ago, I didn't want to rely on memory and the chance of stumbling onto the right quote or the turning moment — or moments, in this case.
+
+So I did what I've started to do on a regular basis when I have complex problems that I want to solve or things that I want to do more efficiently. I asked AI.
+
+My first thought was that I needed an export. Some way to pull a full conversation into a document I could search and edit. That felt like the right solution — get the raw material, work from there.
+
+<AiChat label="the first attempt">
+  <div class="bubble me">
+    <div class="avatar">DC</div>
+    <div class="text">Is there a way to export whole conversations? I'm trying to gather material for my blog articles but having to do it from memory and dig through long threads to find the relevant exchanges.</div>
+  </div>
+  <div class="bubble">
+    <div class="avatar">AI</div>
+    <div class="text">There's an Export Data option, but it exports everything — not a clean, blog-ready file per conversation. You'd get a zip of all your history at once.</div>
+  </div>
+</AiChat>
+
+But that's not what I needed. I wanted a way to do a clean export of the transcript between myself and AI for a specific conversation. Unfortunately, there was no way to do this aside from copying and pasting (a future me problem). So I shifted gears. If I could copy and paste the conversation and then give it to the AI, it could do what it does best. Find the patterns, collate and synthesize.
+
+<AiChat label="getting to the actual problem">
+  <div class="bubble me">
+    <div class="avatar">DC</div>
+    <div class="text">What I actually want is to write a series about how AI helped me figure out my skincare situation. But the conversation is so long. I'd have to piece it together from memory, or read the whole thing and try to extract what matters.</div>
+  </div>
+  <div class="bubble">
+    <div class="avatar">AI</div>
+    <div class="text">There's no built-in tool for this — but you can extract and structure it in a way that's actually better than a raw export.</div>
+  </div>
+  <div class="bubble me">
+    <div class="avatar">DC</div>
+    <div class="text">How?</div>
+  </div>
+  <div class="bubble">
+    <div class="avatar">AI</div>
+    <div class="text">You're not trying to export a conversation. You're trying to mine it. Those are different problems. What you need is curation, not a dump.</div>
+  </div>
+</AiChat>
+
+That was the reframe I needed.
+
+Raw export would give me everything. And everything was the problem. What I actually needed was for AI to go through the conversation with me and pull out the moments that mattered; the places where I was confused, where something shifted, where I pushed back, where a decision was made.
+
+Then I showed it an example of one of my posts as an example of how they're structured and came up with a working plan.
+
+<AiChat label="the turn">
+  <div class="bubble me">
+    <div class="avatar">DC</div>
+    <div class="text">Let me show you a drafted blog post first and then we can come up with a plan. What I think would work best is if you can come up with the outline and the most relevant quotes using the criteria you suggested to preserve my voice. Then I will do an audio recording — transcription of what I remember about the whole scenario. That way the narrative is mine. Then I'll feed that to the LLM that's helping me with the structure of the posts.</div>
+  </div>
+  <div class="bubble">
+    <div class="avatar">AI</div>
+    <div class="text">This is really good. Like…you already have a very distinct voice and structure. This helps a ton. You don't want the AI writing the story. You want it curating the receipts.</div>
+  </div>
+</AiChat>
+
+<PullQuote>
+You don't want the AI writing the story. You want it curating the receipts.
+</PullQuote>
+
+Yes. Exactly that.
+
+So that's what we built. The workflow is: I paste in a chunk of the conversation I want to write about, and AI goes through it and pulls out the story arc, the key exchanges, the moments where something shifted. Not everything. The parts that are actually worth telling. Then I go record myself talking through what happened, the way I'd tell it to someone I know. That audio gets transcribed, and then I take the outline, the curated quotes, and the transcript, and ask AI to help me shape it into a post while preserving my voice.
+
+<ScienceNote label="why talking is easier than writing">
+For a lot of ADHD brains, spoken language is significantly more fluent than written language — even when the writing skill is there. This isn't a focus problem. It's that writing requires holding your thought, translating it, monitoring your output, and editing simultaneously. Speaking offloads most of that. The thought just comes out. Transcription tools have made this more practical than ever: record yourself telling the story, get a transcript, and use that as your raw material instead of a blank page. You're not working around a limitation — you're using the output channel that actually works.
+</ScienceNote>
+
+But it didn't stop there. I needed a tool.
+
+<AiChat label="making it repeatable">
+  <div class="bubble me">
+    <div class="avatar">DC</div>
+    <div class="text">This is helpful, but I don't want to have to re-explain all of this every time. And I don't want to do it all in one conversation — that's how we got here in the first place. Can you give me a reusable prompt I can save and use whenever I'm ready to write an article?</div>
+  </div>
+  <div class="bubble">
+    <div class="avatar">AI</div>
+    <div class="text">Yes. Give me the blog post structure as an example and I'll build a prompt that extracts story arc, curated exchanges, key insights, and narration prompts — formatted for your workflow.</div>
+  </div>
+</AiChat>
+
+Now I have a prompt in my Dopamine Cat folder. When I'm ready to write a post, I can copy and paste my AI conversation (still a future me problem) and use my prompt as the directions for how to handle the information dump. Then the AI mines the conversation for specific information and quotes.
+
+<ScienceNote label="why this is an ADHD problem specifically">
+Working memory — the brain system that holds information "online" while you're using it — functions differently in ADHD. It's not that the information isn't there. It's that it's harder to retrieve on demand, especially when the original experience had a lot of emotional or cognitive load attached to it. This is part of why ADHD brains often do better with externalized systems than with memory-based recall. A long AI conversation is technically a record of everything that happened — but if you can't navigate it efficiently, it's not actually accessible. Structured extraction does what working memory can't: it makes the relevant parts findable without requiring you to hold the whole thread in your head.
+</ScienceNote>
+
+This post was written using the exact workflow I just described. The outline came from an AI that read through my source conversation. The narration came from a voice recording I did of myself talking through the problem. What you're reading is the result of bringing both of those things to an AI that knows how I write, and then me editing a near-complete draft.
+
+<WhatWorked>
+<ul>
+<li>Show the AI an example of what you're actually trying to build before you ask it to help. It can't reverse-engineer your format from nothing, but it can work backward from a real example.</li>
+<li>Give each step in the process its own job. AI curates the receipts. You narrate. AI shapes the draft. You edit. The whole thing works because nothing is trying to do everything at once.</li>
+<li>Record yourself talking before you write. The way you tell a story out loud — the order, the emphasis, the specific words — may be closer to your actual voice than anything you'll produce staring at a blank document.</li>
+<li>Build a reusable prompt and save it somewhere named for what it does. If you have to re-explain the system every time, it's not a system yet.</li>
+</ul>
+</WhatWorked>

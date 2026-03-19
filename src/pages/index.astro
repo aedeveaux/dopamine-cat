@@ -163,4 +163,23 @@ import molecule from '../assets/molecule.png';
   font-size: 0.8rem;
   color: var(--text-muted);
 }
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: unset;
+    padding: 2.5rem 0;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-image {
+    display: none;
+  }
+  .hero-text h1 {
+    font-size: 2.25rem;
+  }
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

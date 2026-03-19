@@ -1,0 +1,38 @@
+---
+const { label = "get the tool", link, cta } = Astro.props;
+---
+<div class="get-the-tool">
+  <span class="block-label">{label}</span>
+  <a href={link} target="_blank" rel="noopener noreferrer" class="tool-btn">{cta}</a>
+</div>
+
+<style>
+.get-the-tool {
+  border-left: 3px solid var(--orange);
+  background: var(--orange-light);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.block-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange-dark);
+  margin-bottom: 0.75rem;
+}
+.tool-btn {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  padding: 0.65rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.tool-btn:hover {
+  opacity: 0.9;
+}
+</style>
