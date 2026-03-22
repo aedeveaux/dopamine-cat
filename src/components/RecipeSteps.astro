@@ -1,0 +1,70 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "instructions" } = Astro.props;
+---
+
+<div class="recipe-steps">
+  <h3 class="steps-label">{label}</h3>
+  <ol class="steps-list">
+    <slot />
+  </ol>
+</div>
+
+<style>
+  .recipe-steps {
+    margin-top: 0.5rem;
+  }
+
+  .steps-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f48410;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .steps-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    counter-reset: steps;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .steps-list :global(li) {
+    counter-increment: steps;
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  .steps-list :global(li)::before {
+    content: counter(steps);
+    background-color: #f48410;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .steps-list :global(li strong) {
+    color: #1a1a1a;
+  }
+</style>

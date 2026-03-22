@@ -1,0 +1,92 @@
+---
+title: "Butterbeer Stuffed Cookies (v1)"
+date: "March 21, 2026"
+type: tools
+tags: ["recipes", "baking", "Harry Potter", "butterbeer"]
+excerpt: "Brown-butter butterscotch cookies with a silky cream center. Version 1 — it works, with known issues already being fixed in round two."
+readTime: "2 min read"
+---
+
+import RecipeCard from '../../components/RecipeCard.astro';
+import IngredientGroup from '../../components/IngredientGroup.astro';
+import RecipeSteps from '../../components/RecipeSteps.astro';
+import { Image } from 'astro:assets';
+import cookiesFinished from '../../assets/cookies-finished.jpeg';
+
+This recipe came out of a long AI conversation. The full story is in [The Sorting Party Needed a Dessert](/blog/butterbeer-cookies).
+
+The cookie is buttery, the filling is light, and five seconds in the microwave does something genuinely nice. Version 2 is already in progress and will fix the known issues listed in the notes below.
+
+<Image src={cookiesFinished} alt="Butterbeer stuffed cookies on a plate, one broken open showing the cream filling" width={500} />
+
+<RecipeCard
+  title="Butterbeer Stuffed Cookies"
+  description="Brown-butter butterscotch cookies with a silky cream center. Best eaten warm — 5 seconds in the microwave brings the whole thing back to life."
+  yield="12 large cookies"
+  prepTime="~30 min"
+  chillTime="30–60 min"
+  bakeTime="12–14 min"
+  version="v1"
+>
+
+  <IngredientGroup label="Butterbeer Cream Filling">
+    <li>4 oz cream cheese, softened</li>
+    <li>2 tbsp unsalted butter, very soft</li>
+    <li>2½ tbsp granulated sugar</li>
+    <li>1 tsp vanilla extract</li>
+    <li>Pinch fine salt</li>
+  </IngredientGroup>
+
+  <IngredientGroup label="Brown-Butter Cookie Dough">
+    <li>½ cup (1 stick) unsalted butter</li>
+    <li>¾ cup dark brown sugar, packed</li>
+    <li>1 large egg, room temperature</li>
+    <li>1 tsp vanilla extract</li>
+    <li>1¾ cups all-purpose flour</li>
+    <li>½ tsp baking soda</li>
+    <li>½ tsp fine salt</li>
+    <li>1 tsp malted milk powder (optional but worth it)</li>
+  </IngredientGroup>
+
+  <RecipeSteps label="Make the filling first">
+    <li>Beat cream cheese, butter, sugar, vanilla, and salt together until completely smooth and glossy.</li>
+    <li>Chill 20–30 minutes until scoopable but not firm.</li>
+    <li>Scoop into 12 portions (~1½ tsp each) and return to the refrigerator while you make the dough.</li>
+  </RecipeSteps>
+
+  <RecipeSteps label="Brown the butter">
+    <li>Melt butter over medium heat and cook until amber colored.</li>
+    <li>Pour into a mixing bowl and cool until just warm, not hot.</li>
+  </RecipeSteps>
+
+  <RecipeSteps label="Make the dough">
+    <li>Whisk browned butter and brown sugar together until smooth and glossy.</li>
+    <li>Whisk in egg and vanilla.</li>
+    <li>In a separate bowl, combine flour, baking soda, salt, and malt powder if using.</li>
+    <li>Fold dry into wet just until combined.</li>
+    <li>Chill dough 20 minutes. Do not skip — cold dough is much easier to stuff.</li>
+  </RecipeSteps>
+
+  <RecipeSteps label="Assemble">
+    <li>Scoop ¼ cup dough per cookie.</li>
+    <li>Flatten in your palm, place one chilled cream portion in the center, and wrap the dough completely around the filling.</li>
+    <li>Roll gently into a smooth ball and place seam-side down on a lined baking sheet.</li>
+  </RecipeSteps>
+
+  <RecipeSteps label="Bake and cool">
+    <li>Bake at 350°F (175°C) for 12–14 minutes. Edges set, tops lightly golden, centers still soft.</li>
+    <li>Cool 10 minutes on the pan before transferring to a rack.</li>
+  </RecipeSteps>
+
+  <RecipeSteps label="Reheat for the butterbeer effect">
+    <li><strong>Room temperature:</strong> 5 seconds microwave.</li>
+    <li><strong>Refrigerated:</strong> 7–8 seconds.</li>
+    <li><strong>Frozen:</strong> 12–15 seconds, rest 30 seconds, then 3–5 more.</li>
+    <li>Eat immediately.</li>
+  </RecipeSteps>
+
+</RecipeCard>
+
+**V1 known issues:** The dough gets dry and hard to work with after it's been back in the refrigerator. The cream cheese flavor is prominent but not overpowering. The cookie isn't as buttery as intended. v2 is in the works — but v1 still got eaten.
+
+[Version 2 coming soon]

@@ -1,0 +1,57 @@
+---
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="ingredient-group">
+  <h3 class="ingredient-label">{label}</h3>
+  <ul class="ingredient-list">
+    <slot />
+  </ul>
+</div>
+
+<style>
+  .ingredient-group {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .ingredient-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f48410;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .ingredient-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .ingredient-list :global(li) {
+    font-size: 0.95rem;
+    color: #333;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .ingredient-list :global(li)::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #f48410;
+    font-weight: 700;
+  }
+</style>

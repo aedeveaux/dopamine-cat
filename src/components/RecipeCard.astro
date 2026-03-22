@@ -1,0 +1,137 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  yield?: string;
+  prepTime?: string;
+  chillTime?: string;
+  bakeTime?: string;
+  version?: string;
+}
+
+const { title, description, yield: yieldAmount, prepTime, chillTime, bakeTime, version } = Astro.props;
+---
+
+<div class="recipe-card">
+  <div class="recipe-header">
+    <div class="recipe-title-row">
+      <h2 class="recipe-title">{title}</h2>
+      {version && <span class="recipe-version">{version}</span>}
+    </div>
+    {description && <p class="recipe-description">{description}</p>}
+    <div class="recipe-meta">
+      {yieldAmount && (
+        <div class="meta-item">
+          <span class="meta-label">Yield</span>
+          <span class="meta-value">{yieldAmount}</span>
+        </div>
+      )}
+      {prepTime && (
+        <div class="meta-item">
+          <span class="meta-label">Prep</span>
+          <span class="meta-value">{prepTime}</span>
+        </div>
+      )}
+      {chillTime && (
+        <div class="meta-item">
+          <span class="meta-label">Chill</span>
+          <span class="meta-value">{chillTime}</span>
+        </div>
+      )}
+      {bakeTime && (
+        <div class="meta-item">
+          <span class="meta-label">Bake</span>
+          <span class="meta-value">{bakeTime}</span>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .recipe-card {
+    border: 2px solid #f48410;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 2rem 0;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .recipe-header {
+    background-color: #fff8f0;
+    border-bottom: 2px solid #f48410;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .recipe-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .recipe-title {
+    font-family: 'LT Flode Neue News', serif;
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .recipe-version {
+    background-color: #f48410;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .recipe-description {
+    color: #555;
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+  }
+
+  .recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #f48410;
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .recipe-body {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
