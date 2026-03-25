@@ -1,6 +1,6 @@
 ---
 import Layout from './Layout.astro';
-const { title, date, type, readTime } = Astro.props;
+const { title, date, type, readTime, description, ogImage } = Astro.props;
 const colorMap: Record<string, string> = {
   story: 'teal',
   'brain science': 'purple',
@@ -9,7 +9,7 @@ const colorMap: Record<string, string> = {
 const categoryColor = colorMap[type] ?? 'teal';
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description} ogImage={ogImage}>
   <article class="post">
     <div class="container">
       <header class="post-header">
@@ -18,7 +18,7 @@ const categoryColor = colorMap[type] ?? 'teal';
         <div class="byline">DC · {date} · {readTime}</div>
         {type === 'brain science' && <p class="post-descriptor">a deeper look</p>}
       </header>
-      <div class="post-body">
+      <div class="post-body" data-pagefind-body>
         <slot />
       </div>
     </div>

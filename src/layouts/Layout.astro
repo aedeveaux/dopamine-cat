@@ -1,15 +1,38 @@
 ---
 import '../styles/global.css';
 import NewsletterModal from '../components/NewsletterModal.astro';
-const { title } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = '/og-default.png',
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site).toString();
+const pageTitle = `${title} · The Dopamine Cat`;
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} · The Dopamine Cat</title>
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={ogImageURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="The Dopamine Cat" href="/rss.xml" />
   </head>
   <body>
     <header class="site-header">

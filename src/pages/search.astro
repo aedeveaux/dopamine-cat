@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Search" description="Search all posts on The Dopamine Cat">
+  <div class="container search-page">
+    <h1>Search</h1>
+    <div id="search"></div>
+  </div>
+</Layout>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js" is:inline></script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    new (window as any).PagefindUI({ element: '#search', showSubResults: true });
+  });
+</script>
+
+<style>
+.search-page {
+  padding: 3rem 0 4rem;
+}
+.search-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+</style>
