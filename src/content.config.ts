@@ -9,6 +9,7 @@ const blog = defineCollection({
     type: z.enum(['story', 'brain science', 'tools']).default('story'),
     tags: z.array(z.string()).default([]),
     excerpt: z.string(),
+    description: z.string().optional(),
     readTime: z.string(),
   }),
 });

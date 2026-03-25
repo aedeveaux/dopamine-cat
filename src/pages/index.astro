@@ -1,6 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import molecule from '../assets/molecule.png';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()).slice(0, 3);
+
+const pillClass: Record<string, string> = {
+  'story': 'pill--teal',
+  'tools': 'pill--orange',
+  'brain science': 'pill--purple',
+};
 ---
 
 <Layout title="Home">
@@ -12,7 +22,7 @@ import molecule from '../assets/molecule.png';
           <span class="kicker">from imagination to execution</span>
           <h1>big ideas. better tools.</h1>
           <p>I have more ideas than most people know what to do with. For a long time, fighting my own cognition meant most of them stayed stuck in my head. This is what it looks like when they finally get out.</p>
-          <a href="/blog" class="btn-primary">start here</a>
+          <a href="/blog/the-catalyst" class="btn-primary">start here</a>
         </div>
         <div class="hero-image">
           <img src={molecule.src} alt="" class="molecule-img" />
@@ -29,24 +39,14 @@ import molecule from '../assets/molecule.png';
         <a href="/blog">all posts →</a>
       </div>
       <div class="post-grid">
-        <div class="post-card">
-          <span class="pill pill--teal">story</span>
-          <h3>The sorting party that took four AI conversations to finish</h3>
-          <p>I had 600 items to sort and no idea where to start. Here's the messy, iterative way we figured it out.</p>
-          <span class="meta">5 min read</span>
-        </div>
-        <div class="post-card">
-          <span class="pill pill--orange">tools</span>
-          <h3>Teaching my brain to finish things, using a dog metaphor</h3>
-          <p>The AI suggested I think of my task list like a dog that needs a walk. It was weird. It absolutely worked.</p>
-          <span class="meta">6 min read</span>
-        </div>
-        <div class="post-card">
-          <span class="pill pill--purple">brain science</span>
-          <h3>Why "just start" is the most useless advice in the world</h3>
-          <p>There's a specific reason initiation is hard for ADHD brains, and it has nothing to do with willpower.</p>
-          <span class="meta">8 min read</span>
-        </div>
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="post-card">
+            <span class={`pill ${pillClass[post.data.type] ?? 'pill--teal'}`}>{post.data.type}</span>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description ?? post.data.excerpt}</p>
+            <span class="meta">{post.data.date}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -144,6 +144,9 @@ import molecule from '../assets/molecule.png';
   gap: 1.25rem;
 }
 .post-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 16px;
