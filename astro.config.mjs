@@ -6,6 +6,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://thedopaminecat.com',
+  site: 'https://www.thedopaminecat.com',
   integrations: [mdx(), sitemap()],
 });
