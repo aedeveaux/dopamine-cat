@@ -1,0 +1,22 @@
+---
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Newsletter">
+  <section class="newsletter-page">
+    <div class="container">
+      <NewsletterSignup
+        title="Get the newsletter"
+        idPrefix="page-newsletter"
+        description="One clean place to keep up with new essays, experiments, and useful rabbit holes. No popups, no spam, no visual junk."
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+.newsletter-page {
+  padding: 4rem 0 5rem;
+}
+</style>
