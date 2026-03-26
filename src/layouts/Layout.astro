@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import NewsletterModal from '../components/NewsletterModal.astro';
+import Analytics from '@vercel/analytics/astro';
 const {
   title,
   description,
@@ -60,6 +61,7 @@ const pageTitle = `${title} · The Dopamine Cat`;
         <p class="copyright">© 2026 Velira Concepts LLC</p>
       </div>
     </footer>
+    <Analytics />
   </body>
 </html>
 
