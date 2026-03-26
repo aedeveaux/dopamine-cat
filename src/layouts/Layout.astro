@@ -97,10 +97,24 @@ const pageTitle = `${title} · The Dopamine Cat`;
   font-weight: 400;
   color: var(--text);
 }
-@media (max-width: 600px) {
+@media (max-width: 600px) { /* TODO: align breakpoint to 640px to match modal/homepage */
   .site-logo-name { display: none; }
   .nav-cta { display: none; }
+  .site-nav {
+  gap: 0.5rem;
 }
+.site-nav a {
+  font-size: 0.8rem;
+}
+.nav-links {
+  gap: 0.5rem;
+}
+.nav-links a {
+  white-space: nowrap;
+}
+
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;
@@ -114,10 +128,11 @@ const pageTitle = `${title} · The Dopamine Cat`;
 .nav-cta {
   background: var(--purple);
   color: var(--white) !important;
-  padding: 0.4rem 1rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 .site-footer {
   border-top: 1px solid var(--border);

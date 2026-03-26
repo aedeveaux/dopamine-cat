@@ -23,6 +23,7 @@ const pillClass: Record<string, string> = {
           <h1>big ideas. better tools.</h1>
           <p>I have more ideas than most people know what to do with. For a long time, fighting my own cognition meant most of them stayed stuck in my head. This is what it looks like when they finally get out.</p>
           <a href="/blog/the-catalyst" class="btn-primary">start here</a>
+          <a href="/newsletter" class="hero-newsletter-link" data-newsletter-trigger>get the newsletter →</a>
         </div>
         <div class="hero-image">
           <img src={molecule.src} alt="" class="molecule-img" />
@@ -167,7 +168,18 @@ const pillClass: Record<string, string> = {
   color: var(--text-muted);
 }
 
+.hero-newsletter-link {
+  display: none;
+}
 @media (max-width: 640px) {
+  .hero-newsletter-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--purple);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
   .hero {
     min-height: unset;
     padding: 2.5rem 0;
