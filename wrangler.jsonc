@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dopamine-cat",
+  "account_id": "8f9482dd3a6e1a42b5008a2422036ff2",
+  "compatibility_date": "2026-10-10",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

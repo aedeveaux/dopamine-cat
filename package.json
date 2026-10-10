@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && npx pagefind --site dist",
+    "build": "astro build && pagefind --site dist",
+    "deploy": "wrangler deploy",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,10 +16,10 @@
     "@astrojs/mdx": "^5.0.0",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
-    "@vercel/analytics": "^2.0.1",
     "astro": "^6.0.4"
   },
   "devDependencies": {
-    "pagefind": "^1.4.0"
+    "pagefind": "^1.4.0",
+    "wrangler": "4.149.0"
   }
 }
