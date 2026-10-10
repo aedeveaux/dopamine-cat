@@ -13,6 +13,10 @@ index in `dist/`. No Worker script, server-side adapter or paid plan is needed.
 - Worker name: `dopamine-cat`.
 - Static assets and routing: `wrangler.jsonc`.
 
+During migration, Cloudflare builds `cloudflare-migration` so preview testing
+does not publish changes to the Vercel production branch. After validation and
+cutover, merge the migration and point Cloudflare's production branch to `main`.
+
 The public Kit form endpoint is supplied by `PUBLIC_KIT_FORM_ACTION` in the
 existing tracked `.env.local`. This URL is intentionally public: it is the
 HTML form action, not an API credential. Never put secrets in that file.
