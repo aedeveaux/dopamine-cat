@@ -13,9 +13,10 @@ index in `dist/`. No Worker script, server-side adapter or paid plan is needed.
 - Worker name: `dopamine-cat`.
 - Static assets and routing: `wrangler.jsonc`.
 
-During migration, Cloudflare builds `cloudflare-migration` so preview testing
-does not publish changes to the Vercel production branch. After validation and
-cutover, merge the migration and point Cloudflare's production branch to `main`.
+Production branch: `main`. Cloudflare Workers Builds publishes pushes to main.
+Migration completed October 10, 2026 after validating a separate migration
+branch. Vercel's Git connection is disconnected; its prior deployment remains
+available for rollback.
 
 The public Kit form endpoint is supplied by `PUBLIC_KIT_FORM_ACTION` in the
 existing tracked `.env.local`. This URL is intentionally public: it is the
@@ -37,8 +38,25 @@ verified. Record the original web DNS records before switching them; restore
 those records to return traffic to Vercel if needed.
 
 Vercel Analytics has been removed because its hosted endpoints do not move
-with static files. Historical statistics remain in Vercel. Cloudflare Web
-Analytics can be configured separately.
+with static files. Historical statistics remain in Vercel. An existing
+Cloudflare Web Analytics site is configured for `thedopaminecat.com`, with EU
+visitors excluded. Its automatic beacon was not present in the checked live
+HTML after migration, so collection needs follow-up before relying on counts.
+The existing analytics privacy setting was preserved.
+
+The Cloudflare zone redirect `Canonical HTTPS www` sends apex requests and
+HTTP www requests to HTTPS www, preserving paths and queries (301).
+Both domains use Worker custom domains. All email and verification DNS
+records were preserved.
+
+Validation: 33 page/asset/feed URLs passed on preview and live domains; unknown
+paths returned 404; search returned both cookie articles; the newsletter modal
+opened and retained the public Kit endpoint. No test subscription was sent.
+
+Repository audit: no Vercel config, serverless functions, middleware, Supabase,
+auth callbacks, cron jobs or deployment hooks were found. Astro optimizes
+images during the build. The only application environment variable is the
+public Kit form URL. No external database or runtime secrets are needed.
 
 ## Dependency follow-up
 
