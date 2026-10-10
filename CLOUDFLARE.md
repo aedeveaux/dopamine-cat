@@ -40,9 +40,9 @@ those records to return traffic to Vercel if needed.
 Vercel Analytics has been removed because its hosted endpoints do not move
 with static files. Historical statistics remain in Vercel. An existing
 Cloudflare Web Analytics site is configured for `thedopaminecat.com`, with EU
-visitors excluded. Its automatic beacon was not present in the checked live
-HTML after migration, so collection needs follow-up before relying on counts.
-The existing analytics privacy setting was preserved.
+visitors excluded. Its automatically injected beacon was verified in the live
+browser DOM after migration. The existing analytics privacy setting was
+preserved; historical Vercel statistics are not transferred.
 
 The Cloudflare zone redirect `Canonical HTTPS www` sends apex requests and
 HTTP www requests to HTTPS www, preserving paths and queries (301).
